@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="homestyles.css">
+    
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <h1><a href="#home">Library Management System</a></h1>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="login2.php">Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Welcome Section -->
+    <header id="home">
+        <div class="overlay">
+            <h2>Welcome to Our Digital Library</h2>
+            <p>Your gateway to unlimited knowledge and resources</p>
+            <!-- <div class="search-container">
+                <input type="text" placeholder="Search for books...">
+                <button>Search</button>
+            </div> -->
+        </div>
+    </header>
+
+    <!-- Book Table -->
+    <section class="book-table">
+        <div id="table1" class="table-container active">
+            <h1 style="text-align: center;">Available Book</h1>
+           
+            <script>
+            //   function fetchBooks() {
+                  const xhr = new XMLHttpRequest();
+                  xhr.open('post', 'book_report.php', true);
+                  xhr.onload = function() {
+                      if (this.status === 200) {
+                          document.getElementById('bookTable').innerHTML = this.responseText;
+                      } else {
+                          alert('Error fetching data.');
+                      }
+                  };
+                  xhr.send();
+                // }
+           </script>
+           
+            <div id="bookTable">
+              <!-- Data will be inserted here -->
+            </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h1>About LMS</h1>
+        <p>A library's mission statement should concisely convey its purpose and role in serving its community. 
+            It should answer the question: What does your library do and for whom? A well-crafted mission statement
+             can inspire and guide the library's work, defining its goals and objectives. Our library is dedicated 
+             to providing access to a wealth of knowledge and resources. We offer a variety of services to cater to
+              the needs of our community.</p>
+        <p>Libraries can play a vital role in the post-Covid world recovery by providing 
+            essential services and resources to their communities. They can bridge the digital divide by offering free 
+            or low-cost access to technology, including computers, internet, and digital literacy training. 
+            They can support education and learning by providing a range of educational resources, including online courses, 
+            tutoring, and homework help.</p>
+            <p>They can foster community engagement by serving as community hubs, hosting events, 
+                workshops, and programs that bring people together and foster a sense of community. They can promote health and 
+                wellness by offering health and wellness resources, including access to health information, fitness classes, and 
+                mental health support. They can support economic development by providing resources and support for entrepreneurs, 
+                small business owners, and job seekers, including access to business databases, career counseling, and job training programs. </p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h1>Contact Us</h1>
+        <form action="contact.php" method="post">
+            <input type="text" placeholder="Your Name" name="name" required>
+            <input type="email" placeholder="Your Email" name="Email" required>
+            <textarea placeholder="Your Message" name="msgg" required></textarea>
+            <button type="submit">Send Message</button>
+            <button type="reset">Reset</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Library Management System. All rights reserved.</p><br>
+        <p>Phone: +123 456 7890 | Email: contact@library.com</p>
+        <div class="social-media">
+            <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+        </div>
+    </footer>
+</body>
+</html>

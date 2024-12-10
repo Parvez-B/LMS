@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Library</title>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="admin.css" />
+    <link rel="stylesheet" href="responsive.css" />
+
+    <style>
+      .table-container {
+        display: none;
+        /* background-color: aqua; */
+      }
+      .active {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- for header part -->
+    <header>
+      <div class="logosec">
+        <div class="logo">Admin</div>
+        <img
+          src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
+          class="icn menuicn"
+          id="menuicn"
+          alt="menu-icon"
+        />
+      </div>
+
+      <div class="message">
+        <div class="circle"></div>
+        <img
+          src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/8.png"
+          class="icn"
+          alt=""
+        />
+        <div class="dp">
+          <img
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
+            class="dpicn"
+            alt="dp"
+          />
+        </div>
+      </div>
+    </header>
+
+    <div class="main-container">
+      <div class="navcontainer">
+        <nav class="nav">
+          <div class="nav-upper-options">
+            <div class="nav-option option1">
+              <img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
+                class="nav-img"
+                alt="dashboard"
+              />
+              <h3>Dashboard</h3>
+            </div>
+
+            <div class="option2 nav-option">
+              <img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png"
+                class="nav-img"
+                alt="articles"
+              />
+              <button id="toggleTable1">Add Book</button>
+            </div>
+
+            <div class="nav-option option3">
+              <img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/5.png"
+                class="nav-img"
+                alt="report"
+              />
+              
+              <button id="toggleTable2" type="submit" onclick="fetchBooks()">Book Report</button>
+            
+            </div>
+
+
+            
+
+            <div class="nav-option option4">
+              <img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/6.png"
+                class="nav-img"
+                alt="institution"
+              />
+              <button id="btn">Add Student</button>
+            </div>
+
+            <div class="nav-option option5">
+              <img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183323/10.png"
+                class="nav-img"
+                alt="blog"
+              />
+              <button id="btn-1" type="submit" onclick="fetchBooks1()">Student Report</button>
+            </div>
+
+            <div class="nav-option option6">
+              <img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/4.png"
+                class="nav-img"
+                alt="settings"
+              />
+              <button id="btn-2" onclick="fetchBooks2()">Manage Book</button>
+            </div>
+
+            <div class="nav-option logout">
+              <img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png"
+                class="nav-img"
+                alt="logout"
+              />
+              <a href="login2.php" style="text-decoration: solid">
+                <h3>Logout</h3>
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="main">
+
+        <div id="table1" class="table-container active">
+          <div class="form-container">
+            <div class="form-card">
+              <h2>Add New Book</h2>
+              <form id="addBookForm" method="post" action="add_book.php">
+                <div class="form-group">
+                  <label for="bookTitle">Book ID:</label>
+                  <input type="number" id="bookid" name="bookid" required />
+                </div>
+                <div class="form-group">
+                  <label for="bookTitle">Book Title:</label>
+                  <input type="text" id="bookTitle" name="bookTitle" required />
+                </div>
+                <div class="form-group">
+                  <label for="bookAuthor">Author:</label>
+                  <input type="text" id="bookAuthor"  name="bookAuthor" required/>
+
+                </div>
+                <div class="form-group">
+                  <label for="Branch">Branch:</label>
+                  <input type="text" id="branch" name="branch" required />
+                </div>
+                <div class="form-group">
+                  <label for="publicationYear">Publication Year:</label>
+                  <input
+                    type="number"
+                    id="publicationYear"
+                    name="publicationYear"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="Quantity">Quantity:</label>
+                  <input type="number" id="Quantity" name="quantity" required />
+                </div>
+                <button type="submit" id="form-button">Add Book</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div id="table2" class="table-container">
+          <h2>Available Books</h2>
+          <script>
+            function fetchBooks() {
+                const xhr = new XMLHttpRequest();
+                xhr.open('post', 'book_report.php', true);
+                xhr.onload = function() {
+                    if (this.status === 200) {
+                        document.getElementById('bookTable').innerHTML = this.responseText;
+                    } else {
+                        alert('Error fetching data.');
+                    }
+                };
+                xhr.send();
+            }
+        </script>
+        
+          <div id="bookTable">
+            <!-- Data will be inserted here -->
+        </div>
+           
+        </div>
+
+        <div id="table6" class="table-container">
+            <h2>Book Request</h2>
+             
+        </div>
+
+        <div id="table3" class="table-container">
+            <div class="form-container">
+                <div class="form-card">
+                  <h2>Add New Student</h2>
+                  <form id="addBookForm" method="post" action="add_student.php">
+                    <div class="form-group">
+                      <label for="bookTitle">Student ID:</label>
+                      <input type="number" id="stdid" name="stdid" required />
+                    </div>
+                    <div class="form-group">
+                      <label for="bookTitle">Name:</label>
+                      <input type="text" id="stdname" name="stdname" required />
+                    </div>
+                    <div class="form-group">
+                      <label for="bookAuthor">Email:</label>
+                      <input
+                        type="email"
+                        id="Email"
+                        name="Email"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="Branch">Password:</label>
+                      <input type="password" id="pass" name="password" required />
+                    </div>
+
+                    <button type="submit" id="form-button">Add Student</button>
+                  </form>
+                </div>
+              </div>      
+            </div>
+
+
+            
+        <div id="table4" class="table-container">
+            <h2>Student Data</h2>
+            <script>
+              function fetchBooks1() {
+                  const xhr = new XMLHttpRequest();
+                  xhr.open('post', 'student_report.php', true);
+                  xhr.onload = function() {
+                      if (this.status === 200) {
+                          document.getElementById('bookTable1').innerHTML = this.responseText;
+                      } else {
+                          alert('Error fetching data.');
+                      }
+                  };
+                  xhr.send();
+              }
+          </script>
+            <div id="bookTable1">
+              <!-- Data will be inserted here -->
+          </div>
+
+
+
+          <div class="boxx1">
+            <div class="form-card new" style="margin-left: 20%;">
+              <h2>Delete Student</h2>
+              <form id="addBookForm" method="post" action="std_delete.php">
+                <div class="form-group">
+                  <label for="bookTitle">Student ID:</label>
+                  <input type="number" id="dbookid" name="dbookid" required />
+                </div>
+                <button type="Delete" id="form-button">Delete</button>
+              </form>
+            </div>
+          </div>
+           
+        </div>
+
+        <div id="table5" class="table-container">
+            <h2>Manage Books</h2>
+            <script>
+            function fetchBooks2() {
+      const xhr = new XMLHttpRequest();
+      xhr.open('post', 'book_report.php', true);
+      xhr.onload = function() {
+          if (this.status === 200) {
+              document.getElementById('bookTable3').innerHTML = this.responseText;
+
+              // Add event listeners to the newly loaded table rows
+              attachRowClickEvent();
+          } else {
+              alert('Error fetching data.');
+          }
+      };
+      xhr.send();
+  }
+
+  function attachRowClickEvent() {
+      const rows = document.querySelectorAll('#bookTable3 tr');
+      rows.forEach(row => {
+          row.addEventListener('click', function () {
+              const cells = this.getElementsByTagName('td');
+              
+              if (cells.length > 0) { 
+                  const bookId = cells[0].innerText;  
+                  const bookTitle = cells[1].innerText;  
+                  const bookAuthor = cells[2].innerText;   
+                  const branch = cells[3].innerText;   
+                  const publicationYear = cells[4].innerText;  
+                  const quantity = cells[5].innerText;   
+
+                   
+                  document.getElementById('ubookid').value = bookId;
+                  document.getElementById('ubookTitle').value = bookTitle;
+                  document.getElementById('ubookAuthor').value = bookAuthor;
+                  document.getElementById('ubranch').value = branch;
+                  document.getElementById('upublicationYear').value = publicationYear;
+                  document.getElementById('uQuantity').value = quantity;
+              }
+          });
+      });
+  }
+          </script>
+          
+            <div id="bookTable3">
+              <!-- Data will be inserted here -->
+          </div>
+
+
+            <div class="form-container">
+                <div class="form-card">
+                  <h2>Update Book</h2>
+                  <form id="addBookForm" method="post" action="update.php">
+                    <div class="form-group">
+                      <label for="bookTitle">Book ID:</label>
+                      <input type="number" id="ubookid" name="ubookid" required readonly/>
+                    </div>
+                    <div class="form-group">
+                      <label for="bookTitle">Book Title:</label>
+                      <input type="text" id="ubookTitle" name="ubookTitle" required />
+                    </div>
+                    <div class="form-group">
+                      <label for="bookAuthor">Author:</label>
+                      <input
+                        type="text"
+                        id="ubookAuthor"
+                        name="ubookAuthor"
+                        required
+                      />
+                    </div>
+                    <div class="form-group" >
+                      <label for="Branch">Branch:</label>
+                      <input type="text" id="ubranch" name="ubranch" required />
+                    </div>
+                    <div class="form-group">
+                      <label for="publicationYear">Publication Year:</label>
+                      <input
+                        type="number"
+                        id="upublicationYear"
+                        name="upublicationYear"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="Quantity">Quantity:</label>
+                      <input type="number" id="uQuantity" name="uQuantity" required />
+                    </div>
+                    <button type="submit" id="form-button">Update</button> 
+                  </form>
+              
+              </div>
+              <div class="boxx1">
+                <div class="form-card new" style="margin-left: 20%;">
+                  <h2>Delete Book</h2>
+                  <form id="addBookForm" method="post" action="delete.php">
+                    <div class="form-group">
+                      <label for="bookTitle">Book ID:</label>
+                      <input type="number" id="dbookid" name="dbookid" required />
+                    </div>
+                    <button type="Delete" id="form-button">Delete</button>
+                  </form>
+                </div>
+                </div>
+                </div>
+              
+             
+          </div>
+      </div>
+    </div>
+    <script src="admin.js"></script>
+
+    <script>
+ 
+
+      const buttons = [
+        { buttonId: "toggleTable1", tableId: "table1" },
+        { buttonId: "toggleTable2", tableId: "table2" },
+        { buttonId: "btn", tableId: "table3" },
+        { buttonId: "btn-1", tableId: "table4" },
+        { buttonId: "btn-2", tableId: "table5" },
+         
+      ];
+
+      buttons.forEach(({ buttonId, tableId }) => {
+        const button = document.getElementById(buttonId);
+        const table = document.getElementById(tableId);
+        button.addEventListener("click", () => {
+          // Hide all tables
+          buttons.forEach(({ tableId }) => {
+            document.getElementById(tableId).classList.remove("active");
+          });
+          // Show the selected table
+          table.classList.add("active");
+        });
+      });
+    </script>
+  </body>
+
+
+  
+  
+</html>
+
+

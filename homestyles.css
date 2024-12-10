@@ -1,0 +1,479 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"); */
+
+/* Reset and general styles */
+*{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+body,html {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, sans-serif;
+   
+}
+
+/* Navbar styling */
+nav {
+    background-color: #2c3e50; 
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    position: fixed; 
+    width: 93.4%;  
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); 
+    transition: background 0.3s ease;
+}
+
+nav h1 a{
+    text-decoration: none;
+    color: #fff;
+}
+
+nav h1 {
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500; 
+    padding: 10px 15px;
+    border-radius: 25px; 
+    transition: background 0.3s, color 0.3s, transform 0.3s; 
+}
+
+nav ul li a:hover {
+    background-color: #e67e22; 
+    color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+}
+
+
+/* Header / Welcome Section */
+header {
+    background-image: url('img/img-1.jpg'); 
+    
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+    height: 80vh;
+    position: relative;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .overlay {
+    background: rgba(0, 0, 0, 0.6); 
+    padding: 60px;
+    width: 100%;
+}
+
+header h2 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+header p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    font-weight: 300;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+}
+
+.search-container input {
+    padding: 12px;
+    border: none;
+    border-radius: 25px 0 0 25px;
+    width: 400px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-container button {
+    padding: 12px 20px;
+    border: none;
+    background-color: #f39c12;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 0 25px 25px 0;
+    transition: background 0.3s, transform 0.3s;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.search-container button:hover {
+    background-color: #e67e22;
+    transform: scale(1.05); 
+}
+
+
+
+.book-table {
+    padding: 40px;
+    text-align: center;
+    background-color: #f9f9f9; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.book-table h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #2c3e50; 
+    font-weight: bold; 
+}
+
+/* Table Styling */
+table {
+    width: 90%; 
+    margin: 0 auto;
+    border-collapse: collapse; 
+    overflow: hidden;
+}
+
+table th, table td {
+    padding: 15px; 
+    border: 1px solid #ddd; 
+    text-align: center; 
+    font-size: 16px; 
+}
+
+table th {
+    background-color: #3498db; 
+    color: #fff; 
+    text-transform: uppercase; 
+}
+
+table tr:hover {
+    background-color: #e6f7ff; 
+    transition: background 0.3s ease; 
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2; 
+}
+
+table tr:nth-child(odd) {
+    background-color: #ffffff; 
+}
+
+/* About Section */
+#about {
+    padding: 80px 20px;
+    background: linear-gradient(to right, #f1f1f1, #e6e6e6); 
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#about h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+#about h1::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #f39c12; 
+    margin: 10px auto 20px;
+    border-radius: 2px;
+}
+
+#about p {
+    width: 70%;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+    font-weight: 300;
+    text-align: justify; /* Better alignment for reading */
+    padding: 10px;
+    border-left: 4px solid #f39c12; 
+    background: rgba(255, 255, 255, 0.8); /* Subtle background for text */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#about::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    background: rgba(243, 156, 18, 0.1);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+#about::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: rgba(243, 156, 18, 0.1);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+#about h1, #about p {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Contact Section */
+#contact {
+    padding: 60px;
+    text-align: center;
+    background-color: #f9f9f9; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    margin: 20px auto; 
+    max-width: 600px; 
+}
+
+#contact h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-size: 32px; 
+}
+
+#contact form {
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+    margin: 0 auto;
+}
+
+#contact input, #contact textarea {
+    margin-bottom: 15px;
+    padding: 12px; 
+    border: 1px solid #ddd;
+    border-radius: 5px; 
+    font-size: 16px; 
+    transition: border-color 0.3s; 
+}
+
+#contact input:focus, #contact textarea:focus {
+    border-color: #3498db; 
+    outline: none; 
+}
+
+#contact button {
+    padding: 12px; 
+    border: none;
+    background-color: #f39c12; 
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 16px; 
+    transition: background 0.3s, transform 0.3s;
+}
+
+#contact button:hover {
+    background-color: #e67e22; 
+    transform: scale(1.05); 
+}
+
+/* Footer */
+footer {
+    background-color: #2c3e50;
+    color: #fff; 
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+footer h3 {
+    margin-bottom: 10px; 
+    font-size: 24px; 
+    color: #f39c12; 
+}
+
+footer .social-media {
+    margin: 15px 0;
+}
+
+footer .social-media a {
+    color: #f39c12;
+    margin: 0 10px;
+    font-size: 18px; 
+    text-decoration: none; 
+    transition: color 0.3s;
+}
+
+footer .social-media a:hover {
+    color: #fff; 
+    text-decoration: underline; 
+}
+
+/* footer::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    background: rgba(243, 156, 18, 0.1); 
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: 0; 
+} */
+
+/* footer > * {
+    position: relative; 
+    z-index: 1; 
+} */
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav h1 {
+        margin-bottom: 10px;
+    }
+
+    nav ul li a {
+        width: 90%; 
+        text-align: center;
+        padding: 12px;
+    }
+
+    header h2 {
+        font-size: 24px;
+    }
+
+    .search-container {
+        flex-direction: column;
+    }
+
+    .search-container input {
+        width: 80%;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+
+    .search-container button {
+        width: 80%;
+        border-radius: 5px;
+    }
+
+    .book-table h3 {
+        font-size: 24px; 
+    }
+
+    table {
+        width: 100%; 
+    }
+
+    table th, table td {
+        font-size: 14px; 
+        padding: 10px;
+    }
+
+    #about p {
+        width: 90%;
+        font-size: 16px;
+    }
+
+    #about h1 {
+        font-size: 28px;
+    }
+   
+}
+
+@media (max-width: 480px) {
+    nav h1 {
+        font-size: 18px;
+    }
+
+    header h2 {
+        font-size: 20px;
+    }
+
+    .book-table h3, #about h1, #contact h1 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    header h2 {
+        font-size: 32px;
+    }
+
+    header p {
+        font-size: 16px;
+    }
+
+    .search-container input {
+        width: 80%;
+    }
+    #contact h2 {
+        font-size: 28px; /* Smaller heading on mobile */
+    }
+
+    #contact button {
+        font-size: 14px; /* Smaller button text on mobile */
+    }
+
+    footer h3 {
+        font-size: 20px; /* Smaller footer heading on mobile */
+    }
+
+    footer .social-media a {
+        font-size: 16px; /* Smaller social media links on mobile */
+    }
+}
